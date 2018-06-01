@@ -20,6 +20,13 @@ export class SessionService {
     return this._apiRequest('login', data);
   }
 
+  async logout() {
+    await this.apiService.delete('logout');
+    this.destroyToken();
+    this.currentUser = null;
+    this.isAuthenticated = false;
+  }
+
   async _apiRequest(path, user) {
     let response = await this.apiService.post(path, { user });
     this.saveToken(response.token);

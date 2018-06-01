@@ -11,6 +11,14 @@ export class ApiService {
     return this._push(path, body);
   }
 
+  delete(path) {
+    const options = {
+      method: 'DELETE'
+    };
+
+    return this._request(path, options);
+  }
+
   _push(path, body, asPut = false) {
     const options = {
       method: asPut ? 'PUT' : 'POST',
@@ -23,6 +31,10 @@ export class ApiService {
   async _request(path, options) {
     const result = await this.http.fetch(path, options);
     const status = result.status;
+    if (status === 204) {
+      return null;
+    }
+
     const response = await result.json();
 
     if (status >= 200 && status < 400) {

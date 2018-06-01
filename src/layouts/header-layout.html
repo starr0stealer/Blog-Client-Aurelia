@@ -30,6 +30,12 @@
               <i class="fa fa-angle-double-right"></i>
             </a>
           </li>
+          <li class="nav-item" show.bind="sessionService.isAuthenticated">
+            <button type="button" class="nav-link btn btn-link" click.delegate="logout()">
+              Sign out&nbsp;
+              <i class="fa fa-sign-out"></i>
+            </button>
+          </li>
           <li class="nav-item" if.bind="sessionService.isAuthenticated">
             <span class="nav-link">
               ${sessionService.currentUser.username}&nbsp;
