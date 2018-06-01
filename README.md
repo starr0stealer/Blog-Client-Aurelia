@@ -16,3 +16,6 @@
 - Navigate to `http://localhost:9000/`
 
 ## Dependencies
+
+- Bootstrap (w/ jQuery & Popper.js)
+- Font Awesome

@@ -1,3 +1,4 @@
+import 'bootstrap';
 import environment from 'environment';
 
 export function configure(aurelia) {

@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'common';
+@import 'home';
+
+.navbar-nav .active > .nav-link {
+  border-bottom: 0.1rem solid transparent;
+}
+
+.navbar-nav .active > .nav-link {
+  color: $primary !important;
+  border-bottom: 0.1rem solid $primary;
+}
+
+.navbar-brand {
+  color: $primary !important;
+  font-size: 1.5rem !important;
+  margin-right: 2rem !important;
+  padding-top: 0 !important;
+}

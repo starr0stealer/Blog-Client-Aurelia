@@ -1,0 +1,15 @@
+.banner {
+  color: $white;
+  background: $gray;
+  padding: 2rem;
+  margin-bottom: 2rem;
+
+  h1 {
+    text-shadow: 0 1px 3px $black-shadow;
+    margin-bottom: 0;
+  }
+}
+
+.container.page {
+  margin-top: 1.5rem;
+}
