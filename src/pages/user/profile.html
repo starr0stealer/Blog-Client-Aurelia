@@ -11,6 +11,11 @@
             <p>
               ${profile.bio}
             </p>
+            <a class="btn btn-sm btn-outline-secondary float-right"
+               route-href="route: settings" if.bind="isUser">
+              <i class="fa fa-gear"></i>
+              &nbsp;Edit Profile Settings
+            </a>
           </div>
         </div>
       </div>

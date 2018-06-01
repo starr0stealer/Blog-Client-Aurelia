@@ -32,6 +32,13 @@ export class App {
         moduleId: 'pages/user/profile',
         name: 'profile',
         title: 'Profile'
+      },
+      // Settings
+      {
+        route: ['settings'],
+        moduleId: 'pages/user/settings',
+        name: 'settings',
+        title: 'Settings'
       }
     ]);
   }

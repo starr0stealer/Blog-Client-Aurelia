@@ -1,9 +1,11 @@
-import {inject} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
+import {SessionService} from 'services/session-service';
 import {UserService} from 'services/user-service';
 
-@inject(UserService)
+@inject(SessionService, UserService)
 export class Profile {
-  constructor(userService) {
+  constructor(sessionService, userService) {
+    this.sessionService = sessionService;
     this.userService = userService;
   }
 
@@ -13,5 +15,14 @@ export class Profile {
     } catch (_) {
       this.router.navigateToRoute('home');
     }
+  }
+
+  @computedFrom('sessionService.currentUser.username')
+  get isUser() {
+    if (!this.sessionService.currentUser) {
+      return false;
+    }
+
+    return this.profile.username === this.sessionService.currentUser.username;
   }
 }

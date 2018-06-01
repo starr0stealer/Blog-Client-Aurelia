@@ -20,6 +20,10 @@ export class ApiService {
     return this._push(path, body);
   }
 
+  put(path, body) {
+    return this._push(path, body, true);
+  }
+
   delete(path) {
     const options = {
       method: 'DELETE'
