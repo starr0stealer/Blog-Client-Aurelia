@@ -1,8 +1,10 @@
-import {inject} from 'aurelia-framework';
+import {inject, NewInstance} from 'aurelia-framework';
 import {Router, activationStrategy} from 'aurelia-router';
+import {ValidationController, ValidationRules} from 'aurelia-validation';
+import {ValidationRenderer} from 'resources/validation-renderer';
 import {SessionService} from 'services/session-service';
 
-@inject(Router, SessionService)
+@inject(Router, NewInstance.of(ValidationController), SessionService)
 export class Authentication {
   user = {
     email: '',
@@ -10,9 +12,17 @@ export class Authentication {
     username: ''
   };
 
-  constructor(router, sessionService) {
+  constructor(router, validationController, sessionService) {
     this.router = router;
+    this.validator = validationController;
+    this.validator.addRenderer(new ValidationRenderer());
     this.sessionService = sessionService;
+
+    ValidationRules
+        .ensure('email').required().email()
+        .ensure('password').required().minLength(8)
+        .ensure('username').required().when(() => this.type === 'register')
+        .on(this.user);
   }
 
   determineActivationStrategy() {
@@ -30,6 +40,11 @@ export class Authentication {
 
   async submit() {
     this.errors = null;
+
+    const result = await this.validator.validate();
+    if (!result.valid) {
+      return;
+    }
 
     try {
       await this.sessionService[this.type](this.user);

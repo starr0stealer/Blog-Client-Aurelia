@@ -41,6 +41,7 @@
             "env": "dev"
           },
           "node_modules/whatwg-fetch/fetch.js",
+          "node_modules/element-closest/element-closest.js",
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
@@ -81,6 +82,11 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          {
+            "name": "aurelia-validation",
+            "path": "../node_modules/aurelia-validation/dist/amd",
+            "main": "aurelia-validation"
           },
           {
             "name": "bootstrap",

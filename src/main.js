@@ -5,8 +5,9 @@ import {ApiInterceptor} from 'services/api-interceptor';
 
 export function configure(aurelia) {
   aurelia.use
-    .standardConfiguration()
-    .feature('resources');
+      .standardConfiguration()
+      .plugin('aurelia-validation')
+      .feature('resources');
 
   aurelia.container.get(HttpClient).configure(config => {
     config

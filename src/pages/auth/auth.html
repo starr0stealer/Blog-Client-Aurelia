@@ -18,15 +18,15 @@
           <form submit.delegate="submit()">
             <div class="form-group" if.bind="type === 'register'">
               <input type="text" class="form-control form-control-lg" placeholder="Username"
-                     value.bind="user.username" focus.one-time="type === 'register'">
+                     value.bind="user.username & validate" focus.one-time="type === 'register'">
             </div>
             <div class="form-group">
               <input type="text" class="form-control form-control-lg" placeholder="Email"
-                     value.bind="user.email" focus.one-time="type === 'login'">
+                     value.bind="user.email & validate" focus.one-time="type === 'login'">
             </div>
             <div class="form-group">
               <input type="password" class="form-control form-control-lg" placeholder="Password"
-                     value.bind="user.password">
+                     value.bind="user.password & validate">
             </div>
             <button type="submit" class="btn btn-lg btn-primary float-right" disabled.bind="!canSave">
               Sign ${type === 'login' ? 'in' : 'up'}
