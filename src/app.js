@@ -25,6 +25,13 @@ export class App {
         moduleId: 'pages/auth/auth',
         name: 'register',
         title: 'Sign up'
+      },
+      // Profile
+      {
+        route: ['@/:name'],
+        moduleId: 'pages/user/profile',
+        name: 'profile',
+        title: 'Profile'
       }
     ]);
   }

@@ -36,11 +36,12 @@
               <i class="fa fa-sign-out"></i>
             </button>
           </li>
-          <li class="nav-item" if.bind="sessionService.isAuthenticated">
-            <span class="nav-link">
+          <li class="nav-item ${activeRoute === 'profile' ? ' active' : ''}"
+              if.bind="sessionService.isAuthenticated">
+            <a class="nav-link" route-href="route: profile; params.bind: {name: sessionService.currentUser.username}">
               ${sessionService.currentUser.username}&nbsp;
               <i class="fa fa-user"></i>
-            </span>
+            </a>
           </li>
         </ul>
       </div>

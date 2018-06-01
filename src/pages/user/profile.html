@@ -1,0 +1,19 @@
+<template>
+  <section class="profile-page">
+    <div class="user-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-10 offset-md-1">
+            <profile-image image-class="user-img" profile.bind="profile"></profile-image>
+            <h4>
+              ${profile.username}
+            </h4>
+            <p>
+              ${profile.bio}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

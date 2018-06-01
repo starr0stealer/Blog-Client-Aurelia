@@ -8,6 +8,14 @@ export class ApiService {
     this.http = http;
   }
 
+  get(path) {
+    const options = {
+      method: 'GET'
+    };
+
+    return this._request(path, options);
+  }
+
   post(path, body) {
     return this._push(path, body);
   }

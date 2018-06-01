@@ -1,0 +1,3 @@
+<template bindable="profile, imageClass">
+  <img class="${imageClass}" src.bind="profile.image | coalesce:'img/avatar.png'">
+</template>
