@@ -29,10 +29,13 @@ export class Authentication {
   }
 
   async submit() {
+    this.errors = null;
+
     try {
       await this.sessionService[this.type](this.user);
       this.router.navigateToRoute('home');
     } catch (e) {
+      this.errors = e.errors;
     }
   }
 }

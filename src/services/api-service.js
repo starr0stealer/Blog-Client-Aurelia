@@ -1,5 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
+import {ApiError} from './api-error';
 
 @inject(HttpClient)
 export class ApiService {
@@ -35,12 +36,18 @@ export class ApiService {
       return null;
     }
 
-    const response = await result.json();
+    let response = await result.json();
 
     if (status >= 200 && status < 400) {
       return response;
     }
 
-    throw new Error();
+    if (status >= 500) {
+      response = {
+        error: 'There was a problem with the server, please try again later.'
+      };
+    }
+
+    throw new ApiError(response);
   }
 }
