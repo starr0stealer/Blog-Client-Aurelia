@@ -19,3 +19,4 @@
 
 - Bootstrap (w/ jQuery & Popper.js)
 - Font Awesome
+- Aurelia Fetch Client (w/ fetch polyfill)

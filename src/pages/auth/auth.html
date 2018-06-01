@@ -1,0 +1,38 @@
+<template>
+  <section class="auth-page">
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-xs-12">
+          <h1 class="text-center">
+            Sign ${type === 'login' ? 'in' : 'up'}
+          </h1>
+          <p class="text-center">
+            <a route-href="route: login" if.bind="type === 'register'">
+              Have an account?
+            </a>
+            <a route-href="route: register" if.bind="type === 'login'">
+              Need an account?
+            </a>
+          </p>
+          <form submit.delegate="submit()">
+            <div class="form-group" if.bind="type === 'register'">
+              <input type="text" class="form-control form-control-lg" placeholder="Username"
+                     value.bind="user.username" focus.one-time="type === 'register'">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-control-lg" placeholder="Email"
+                     value.bind="user.email" focus.one-time="type === 'login'">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control form-control-lg" placeholder="Password"
+                     value.bind="user.password">
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary float-right" disabled.bind="!canSave">
+              Sign ${type === 'login' ? 'in' : 'up'}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

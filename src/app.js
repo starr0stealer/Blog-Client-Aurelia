@@ -11,6 +11,20 @@ export class App {
         moduleId: 'pages/home/home',
         name: 'home',
         title: 'Home'
+      },
+      // Sign in
+      {
+        route: ['login'],
+        moduleId: 'pages/auth/auth',
+        name: 'login',
+        title: 'Sign in'
+      },
+      // Sign up
+      {
+        route: ['register'],
+        moduleId: 'pages/auth/auth',
+        name: 'register',
+        title: 'Sign up'
       }
     ]);
   }
