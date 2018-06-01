@@ -1,4 +1,12 @@
+import {inject} from 'aurelia-framework';
+import {SessionService} from 'services/session-service';
+
+@inject(SessionService)
 export class App {
+  constructor(sessionService) {
+    this.sessionService = sessionService;
+  }
+
   configureRouter(config, router) {
     this.router = router;
 
@@ -41,5 +49,9 @@ export class App {
         title: 'Settings'
       }
     ]);
+  }
+
+  async activate() {
+    await this.sessionService.getUser();
   }
 }

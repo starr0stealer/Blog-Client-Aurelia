@@ -27,6 +27,24 @@ export class SessionService {
     this.isAuthenticated = false;
   }
 
+  async getUser() {
+    if (!this.getToken()) {
+      this.currentUser = null;
+      this.isAuthenticated = false;
+      return;
+    }
+
+    try {
+      const response = await this.apiService.get('users/current');
+      this.currentUser = response.user;
+      this.isAuthenticated = true;
+    } catch (_) {
+      this.destroyToken();
+      this.currentUser = null;
+      this.isAuthenticated = false;
+    }
+  }
+
   async _apiRequest(path, user) {
     let response = await this.apiService.post(path, { user });
     this.saveToken(response.token);
