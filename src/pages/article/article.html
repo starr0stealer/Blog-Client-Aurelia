@@ -1,0 +1,24 @@
+<template>
+  <require from="./article-meta"></require>
+
+  <section class="article-page">
+    <div class="banner">
+      <div class="container">
+        <h1>
+          ${article.title}
+        </h1>
+        <p>
+          ${article.description}
+        </p>
+        <article-meta article.bind="article"></article-meta>
+      </div>
+    </div>
+    <div class="container page">
+      <div class="row article-content">
+        <div class="col-md-12">
+          <p innerhtml.bind="article.body | formatHtml"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

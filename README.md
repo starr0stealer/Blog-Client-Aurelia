@@ -19,5 +19,6 @@
 
 - Bootstrap (w/ jQuery & Popper.js)
 - Font Awesome
+- MomentJS
 - Aurelia Fetch Client (w/ fetch polyfill)
 - Aurelia Validation (w/ element closest polyfill)

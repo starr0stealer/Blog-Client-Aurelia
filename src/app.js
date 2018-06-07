@@ -47,6 +47,20 @@ export class App {
         moduleId: 'pages/user/settings',
         name: 'settings',
         title: 'Settings'
+      },
+      // Editor
+      {
+        route: ['editor'],
+        moduleId: 'pages/article/editor',
+        name: 'editor',
+        title: 'Editor'
+      },
+      // Article
+      {
+        route: ['article/:slug'],
+        moduleId: 'pages/article/article',
+        name:'article',
+        title: 'Article'
       }
     ]);
   }

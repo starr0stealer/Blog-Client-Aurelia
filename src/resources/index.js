@@ -9,6 +9,8 @@ export function configure(config) {
 
     // Value Converters
     `${VALUE_CONVERTERS}/coalesce`,
+    `${VALUE_CONVERTERS}/date`,
+    `${VALUE_CONVERTERS}/format-html`,
     `${VALUE_CONVERTERS}/keys`,
     `${VALUE_CONVERTERS}/proper-case`
   ]);

@@ -1,0 +1,15 @@
+<template>
+  <div class="article-meta">
+    <a route-href="route: profile; params.bind: {name: article.author.username}">
+      <profile-image profile.bind="article.author"></profile-image>
+    </a>
+    <div class="info">
+      <a class="author" route-href="route: profile; params.bind: {name: article.author.username}">
+        ${article.author.username}
+      </a>
+      <span class="date">
+        ${article.createdAt | date}
+      </span>
+    </div>
+  </div>
+</template>
