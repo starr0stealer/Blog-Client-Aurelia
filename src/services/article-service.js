@@ -15,8 +15,20 @@ export class ArticleService {
   }
 
   async save(article) {
-    const response = await this.apiService.post(this.path, { article });
+    let action = 'post';
+    let path = this.path;
+
+    if (article.slug) {
+      action = 'put';
+      path = this._path(article.slug);
+    }
+
+    const response = await this.apiService[action](path, { article });
     return response.article;
+  }
+
+  delete(slug) {
+    return this.apiService.delete(this._path(slug));
   }
 
   _path(id) {

@@ -24,6 +24,14 @@ export class Editor {
         .on(this.article);
   }
 
+  async activate(params) {
+    this.slug = params.slug;
+
+    if (this.slug) {
+      this.article = await this.articleService.get(this.slug);
+    }
+  }
+
   get canSave() {
     return this.article.title !== '' && this.article.body !== '';
   }

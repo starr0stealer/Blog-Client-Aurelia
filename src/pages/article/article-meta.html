@@ -11,5 +11,17 @@
         ${article.createdAt | date}
       </span>
     </div>
+    <span if.bind="canModify">
+      <a class="btn btn-sm btn-outline-secondary"
+         route-href="route: editor; params.bind: {slug: article.slug}">
+        <i class="fa fa-pencil"></i>
+        &nbsp;Edit Article
+      </a>
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-sm btn-outline-danger" click.delegate="deleteArticle()">
+        <i class="fa fa-trash"></i>
+        &nbsp;Delete Article
+      </button>
+    </span>
   </div>
 </template>

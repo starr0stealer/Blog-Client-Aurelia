@@ -50,7 +50,7 @@ export class App {
       },
       // Editor
       {
-        route: ['editor'],
+        route: ['editor/:slug?'],
         moduleId: 'pages/article/editor',
         name: 'editor',
         title: 'Editor'

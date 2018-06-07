@@ -23,4 +23,13 @@
       margin-bottom: 2rem;
     }
   }
+
+  .article-actions {
+    text-align: center;
+    margin: 1.5rem 0 3rem 0;
+
+    .article-meta .info {
+      text-align: left;
+    }
+  }
 }
