@@ -1,5 +1,6 @@
 <template>
   <require from="./article-meta"></require>
+  <require from="./comment"></require>
 
   <section class="article-page">
     <div class="banner">
@@ -22,6 +23,39 @@
       <hr>
       <div class="article-actions">
         <article-meta article.bind="article"></article-meta>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-8 offset-md-2">
+          <div if.bind="sessionService.isAuthenticated">
+            <error-list errors.bind="errors"></error-list>
+            <form class="card comment-form" submit.delegate="postComment()"
+                  if.bind="sessionService.isAuthenticated">
+              <div class="card-body">
+                <div class="form-group">
+                  <textarea class="form-control form-control-lg" rows="3"
+                            placeholder="Write a comment ..." value.bind="newComment"></textarea>
+                </div>
+              </div>
+              <div class="card-footer">
+                <profile-image image-class="comment-author-img" profile.bind="sessionService.currentUser"></profile-image>
+                <button type="submit" class="btn btn-sm btn-primary float-right" disabled.bind="!canSave">
+                  Post Comment
+                </button>
+              </div>
+            </form>
+          </div>
+          <p if.bind="!sessionService.isAuthenticated">
+            <a route-href="route: login">
+              Sign in
+            </a>
+            &nbsp;or&nbsp;
+            <a route-href="route: register">
+              Sign up
+            </a>
+            &nbsp;to add comments on this article.
+          </p>
+          <comment repeat.for="comment of comments" comment.bind="comment" on-delete.call="deleteComment(comment)"></comment>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,22 @@
+<template>
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text" innerhtml.bind="comment.body | formatHtml"></p>
+    </div>
+    <div class="card-footer">
+      <a class="comment-author" route-href="route: profile; params.bind: {name: comment.author.username}">
+        <profile-image image-class="comment-author-img" profile.bind="comment.author"></profile-image>
+      </a>
+      &nbsp;
+      <a class="comment-author" route-href="route: profile; params.bind: {name: comment.author.username}">
+        ${comment.author.username}
+      </a>
+      <span class="date-posted">
+        ${comment.createdAt | date}
+      </span>
+      <span class="mod-options" if.bind="canModify">
+        <i class="fa fa-trash" click.delegate="onDelete({ comment })"></i>
+      </span>
+    </div>
+  </div>
+</template>
