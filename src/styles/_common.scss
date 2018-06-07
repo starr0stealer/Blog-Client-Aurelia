@@ -45,3 +45,23 @@
     }
   }
 }
+
+.nav-pills.outline-active {
+  .nav-link {
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: #aaa;
+
+    &:hover {
+      color: #555;
+    }
+
+    &.active {
+      background: $white !important;
+      border-bottom: 2px solid $primary !important;
+      color: $primary !important;
+    }
+  }
+}

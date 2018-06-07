@@ -4,6 +4,7 @@ const VALUE_CONVERTERS = './value-converters';
 export function configure(config) {
   config.globalResources([
     // Elements
+    `${ELEMENTS}/article-list.html`,
     `${ELEMENTS}/error-list.html`,
     `${ELEMENTS}/profile-image.html`,
 

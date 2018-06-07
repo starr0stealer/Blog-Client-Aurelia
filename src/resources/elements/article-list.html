@@ -1,0 +1,19 @@
+<template bindable="articles, pageNumber, totalPages, currentPage, onChangePage">
+  <require from="./article-preview.html"></require>
+
+  <div class="article-preview" if.bind="articles.length === 0">
+    No articles are here... yet.
+  </div>
+  <article-preview repeat.for="article of articles" article.bind="article"></article-preview>
+  <nav if.bind="totalPages.length > 1">
+    <ul class="pagination">
+      <li class="page-item ${pageNumber === currentPage ? 'active' : ''}"
+          repeat.for="pageNumber of totalPages"
+          click.delegate="onChangePage({ pageNumber })">
+        <a href="#" class="page-link">
+          ${pageNumber}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</template>

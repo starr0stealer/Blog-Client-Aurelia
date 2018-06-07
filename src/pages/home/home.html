@@ -13,7 +13,18 @@
     <div class="container page">
       <div class="row">
         <div class="col-xs-12">
-          <h1>${message}</h1>
+          <div class="feed-toggle">
+            <ul class="nav nav-pills outline-active">
+              <li class="nav-item">
+                <span class="nav-link active">
+                  Global Feed
+                </span>
+              </li>
+            </ul>
+          </div>
+          <article-list articles.bind="articles" total-pages.bind="totalPages" page-number.bind="pageNumber"
+                        current-page.bind="currentPage" on-change-page.call="setPageTo(pageNumber)">
+          </article-list>
         </div>
       </div>
     </div>

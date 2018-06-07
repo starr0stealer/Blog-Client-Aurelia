@@ -9,6 +9,10 @@ export class ArticleService {
     this.apiService = apiService;
   }
 
+  getList(params) {
+    return this.apiService.get(this.path, params);
+  }
+
   async get(slug) {
     const response = await this.apiService.get(this._path(slug));
     return response.article;

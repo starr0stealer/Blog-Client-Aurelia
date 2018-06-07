@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {inject, buildQueryString} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {ApiError} from './api-error';
 
@@ -8,10 +8,14 @@ export class ApiService {
     this.http = http;
   }
 
-  get(path) {
+  get(path, params) {
     const options = {
       method: 'GET'
     };
+
+    if (params) {
+      path += `?${buildQueryString(params)}`;
+    }
 
     return this._request(path, options);
   }
