@@ -1,0 +1,5 @@
+<template>
+  <article-list articles.bind="articles" total-pages.bind="totalPages" page-number.bind="pageNumber"
+                current-page.bind="currentPage" on-change-page.call="setPageTo(pageNumber)">
+  </article-list>
+</template>
