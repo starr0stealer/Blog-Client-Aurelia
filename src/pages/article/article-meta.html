@@ -24,6 +24,8 @@
       </button>
     </span>
     <span if.bind="!canModify">
+      <follow-button user.bind="article.author"></follow-button>
+      &nbsp;&nbsp;
       <favorite-button article.bind="article">
         &nbsp;(${article.favoritesCount})
       </favorite-button>

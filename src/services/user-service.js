@@ -21,6 +21,14 @@ export class UserService {
     return this.sessionService.currentUser = response.user;
   }
 
+  follow(username) {
+    return this.apiService.post(`${this._path(username)}/follow`);
+  }
+
+  unfollow(username) {
+    return this.apiService.delete(`${this._path(username)}/follow`);
+  }
+
   _path(id) {
     return `${this.path}/${id}`
   }

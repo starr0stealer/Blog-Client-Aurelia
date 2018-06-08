@@ -7,6 +7,7 @@ export function configure(config) {
     `${ELEMENTS}/article-list.html`,
     `${ELEMENTS}/error-list.html`,
     `${ELEMENTS}/favorite-button`,
+    `${ELEMENTS}/follow-button`,
     `${ELEMENTS}/profile-image.html`,
 
     // Value Converters

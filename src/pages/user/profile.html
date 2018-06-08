@@ -11,6 +11,7 @@
             <p>
               ${profile.bio}
             </p>
+            <follow-button user.bind="profile" if.bind="!isUser"></follow-button>
             <a class="btn btn-sm btn-outline-secondary float-right"
                route-href="route: settings" if.bind="isUser">
               <i class="fa fa-gear"></i>

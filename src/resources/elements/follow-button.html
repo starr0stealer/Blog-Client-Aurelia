@@ -1,0 +1,7 @@
+<template>
+  <button type="button" class="btn btn-sm ${user.following ? 'btn-secondary' : 'btn-outline-secondary'}"
+          click.delegate="toggleFollow()">
+    <i class="fa fa-plus"></i>
+    &nbsp;${(user.following ? 'Unfollow' : 'Follow') + ' ' + user.username}
+  </button>
+</template>
