@@ -15,10 +15,17 @@
         <div class="col-sm-12">
           <div class="feed-toggle">
             <ul class="nav nav-pills outline-active">
+              <li class="nav-item" if.bind="sessionService.isAuthenticated">
+                <a href="#" class="nav-link ${shownList === 'feed' ? ' active' : ''}"
+                   click.delegate="setListTo('feed')">
+                  Your Feed
+                </a>
+              </li>
               <li class="nav-item">
-                <span class="nav-link active">
+                <a href="#" class="nav-link ${shownList === 'all' ? 'active' : ''}"
+                   click.delegate="setListTo('all')">
                   Global Feed
-                </span>
+                </a>
               </li>
             </ul>
           </div>

@@ -9,8 +9,9 @@ export class ArticleService {
     this.apiService = apiService;
   }
 
-  getList(params) {
-    return this.apiService.get(this.path, params);
+  getList(type, params) {
+    const path = `${this.path}${type === 'feed' ? '/feed' : ''}`;
+    return this.apiService.get(path, params);
   }
 
   async get(slug) {
