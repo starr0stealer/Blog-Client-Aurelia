@@ -23,5 +23,10 @@
         &nbsp;Delete Article
       </button>
     </span>
+    <span if.bind="!canModify">
+      <favorite-button article.bind="article">
+        &nbsp;(${article.favoritesCount})
+      </favorite-button>
+    </span>
   </div>
 </template>

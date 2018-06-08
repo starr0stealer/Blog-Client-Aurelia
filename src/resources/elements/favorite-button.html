@@ -1,0 +1,10 @@
+<template>
+  <button type="button" class="btn btn-sm ${article.favorited ? 'btn-primary' : 'btn-outline-primary'}"
+          click.delegate="toggleFavorite()">
+    <i class="fa fa-heart"></i>
+    <span if.bind="includeLabel">
+      ${article.favorited ? 'Unfavorite' : 'Favorite'} Post
+    </span>
+    <slot></slot>
+  </button>
+</template>

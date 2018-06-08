@@ -6,6 +6,7 @@ export function configure(config) {
     // Elements
     `${ELEMENTS}/article-list.html`,
     `${ELEMENTS}/error-list.html`,
+    `${ELEMENTS}/favorite-button`,
     `${ELEMENTS}/profile-image.html`,
 
     // Value Converters

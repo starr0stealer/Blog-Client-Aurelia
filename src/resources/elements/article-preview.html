@@ -12,6 +12,9 @@
           ${article.createdAt | date}
         </span>
       </div>
+      <favorite-button class="float-right" article.bind="article" include-label.bind="false">
+        ${article.favoritesCount}
+      </favorite-button>
     </div>
     <a class="preview-link" route-href="route: article; params.bind: { slug: article.slug }">
       <h1>

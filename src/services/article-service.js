@@ -35,6 +35,14 @@ export class ArticleService {
     return this.apiService.delete(this._path(slug));
   }
 
+  favorite(slug) {
+    return this.apiService.post(`${this._path(slug)}/favorite`);
+  }
+
+  unfavorite(slug) {
+    return this.apiService.delete(`${this._path(slug)}/favorite`)
+  }
+
   _path(id) {
     return `${this.path}/${id}`;
   }
