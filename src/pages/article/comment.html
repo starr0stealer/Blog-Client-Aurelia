@@ -15,7 +15,7 @@
         ${comment.createdAt | date}
       </span>
       <span class="mod-options" if.bind="canModify">
-        <i class="fa fa-trash" click.delegate="onDelete({ comment })"></i>
+        <i class="fa ${comment.isRequesting ? 'fa-pulse fa-spinner' : 'fa-trash'}" click.delegate="onDelete({ comment })"></i>
       </span>
     </div>
   </div>

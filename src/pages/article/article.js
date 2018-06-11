@@ -29,6 +29,7 @@ export class Article {
 
   async postComment() {
     this.errors = null;
+    this.isRequesting = true;
 
     try {
       const comment = await this.commentService.add(this.slug, { body: this.newComment });
@@ -39,9 +40,12 @@ export class Article {
     } catch (e) {
       this.errors = e.errors;
     }
+
+    this.isRequesting = false;
   }
 
   async deleteComment(comment) {
+    comment.isRequesting = true;
     await this.commentService.delete(this.slug, comment.id);
     this.comments = this.comments.filter(c => c.id !== comment.id);
   }

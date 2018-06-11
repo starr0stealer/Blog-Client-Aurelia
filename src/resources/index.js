@@ -9,6 +9,7 @@ export function configure(config) {
     `${ELEMENTS}/favorite-button`,
     `${ELEMENTS}/follow-button`,
     `${ELEMENTS}/profile-image.html`,
+    `${ELEMENTS}/submit-button.html`,
 
     // Value Converters
     `${VALUE_CONVERTERS}/coalesce`,

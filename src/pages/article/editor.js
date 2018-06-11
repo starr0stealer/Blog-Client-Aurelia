@@ -44,6 +44,8 @@ export class Editor {
       return;
     }
 
+    this.isRequesting = true;
+
     try {
       const article = await this.articleService.save(this.article);
       this.slug = article.slug;
@@ -51,5 +53,7 @@ export class Editor {
     } catch (e) {
       this.errors = e.errors;
     }
+
+    this.isRequesting = false;
   }
 }

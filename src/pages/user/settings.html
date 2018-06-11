@@ -59,9 +59,9 @@
               <input type="password" class="form-control form-control-lg" placeholder="Password"
                      value.bind="profile.password & validate">
             </div>
-            <button type="submit" class="btn btn-lg btn-primary float-right" disabled.bind="!canSave">
+            <submit-button is-requesting.bind="isRequesting" can-submit.bind="canSave">
               Update Settings
-            </button>
+            </submit-button>
           </form>
         </div>
       </div>

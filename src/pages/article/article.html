@@ -38,9 +38,9 @@
               </div>
               <div class="card-footer">
                 <profile-image image-class="comment-author-img" profile.bind="sessionService.currentUser"></profile-image>
-                <button type="submit" class="btn btn-sm btn-primary float-right" disabled.bind="!canSave">
+                <submit-button small="true" is-requesting.bind="isRequesting" can-submit.bind="canSave">
                   Post Comment
-                </button>
+                </submit-button>
               </div>
             </form>
           </div>

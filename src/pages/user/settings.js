@@ -64,11 +64,15 @@ export class Settings {
       delete this.profile.password;
     }
 
+    this.isRequesting = true;
+
     try {
       const name = (await this.userService.update(this.profile)).username;
       this.router.navigateToRoute('profile', { name });
     } catch (e) {
       this.errors = e.errors;
     }
+
+    this.isRequesting = false;
   }
 }

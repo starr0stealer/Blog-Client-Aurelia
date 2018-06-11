@@ -1,0 +1,10 @@
+<template bindable="small, isRequesting, canSubmit">
+  <button type="submit" class="btn ${small ? 'btn-sm' : 'btn-lg'} btn-primary float-right"
+          disabled.bind="isRequesting || !canSubmit">
+    <span if.bind="isRequesting">
+      <i class="fa fa-pulse fa-spinner"></i>
+      &nbsp;
+    </span>
+    <slot></slot>
+  </button>
+</template>
