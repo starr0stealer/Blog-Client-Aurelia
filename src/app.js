@@ -1,4 +1,5 @@
 import {inject} from 'aurelia-framework';
+import {AuthorizeStep} from 'resources/pipelines/authorize-step';
 import {SessionService} from 'services/session-service';
 
 @inject(SessionService)
@@ -12,6 +13,7 @@ export class App {
 
     config.title = 'Blog App';
     config.options.pushState = true;
+    config.addAuthorizeStep(AuthorizeStep);
     config.map([
       // Home
       {
@@ -46,14 +48,16 @@ export class App {
         route: ['settings'],
         moduleId: 'pages/user/settings',
         name: 'settings',
-        title: 'Settings'
+        title: 'Settings',
+        settings: { auth: true }
       },
       // Editor
       {
         route: ['editor/:slug?'],
         moduleId: 'pages/article/editor',
         name: 'editor',
-        title: 'Editor'
+        title: 'Editor',
+        settings: { auth: true }
       },
       // Article
       {
